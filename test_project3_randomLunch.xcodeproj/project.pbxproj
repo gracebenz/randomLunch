@@ -19,6 +19,11 @@
 		920477711766637E00EB2ADB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9204776F1766637E00EB2ADB /* MainStoryboard.storyboard */; };
 		920477741766637E00EB2ADB /* lunchMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920477731766637E00EB2ADB /* lunchMasterViewController.m */; };
 		920477771766637E00EB2ADB /* lunchDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 920477761766637E00EB2ADB /* lunchDetailViewController.m */; };
+		9204777F176667D700EB2ADB /* lunchLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9204777E176667D700EB2ADB /* lunchLocation.m */; };
+		9204778217666A6B00EB2ADB /* lunchLocationDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9204778117666A6B00EB2ADB /* lunchLocationDataController.m */; };
+		92047785176681A100EB2ADB /* lunchAddLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92047784176681A100EB2ADB /* lunchAddLocationViewController.m */; };
+		9217AD40176760A800BF46BD /* lunchRandomChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9217AD3F176760A800BF46BD /* lunchRandomChoiceViewController.m */; };
+		92BE806A17690E8100F28BC9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BE806917690E8100F28BC9 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,15 @@
 		920477731766637E00EB2ADB /* lunchMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lunchMasterViewController.m; sourceTree = "<group>"; };
 		920477751766637E00EB2ADB /* lunchDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lunchDetailViewController.h; sourceTree = "<group>"; };
 		920477761766637E00EB2ADB /* lunchDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = lunchDetailViewController.m; sourceTree = "<group>"; };
+		9204777D176667D700EB2ADB /* lunchLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lunchLocation.h; sourceTree = "<group>"; };
+		9204777E176667D700EB2ADB /* lunchLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lunchLocation.m; sourceTree = "<group>"; };
+		9204778017666A6B00EB2ADB /* lunchLocationDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lunchLocationDataController.h; sourceTree = "<group>"; };
+		9204778117666A6B00EB2ADB /* lunchLocationDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lunchLocationDataController.m; sourceTree = "<group>"; };
+		92047783176681A100EB2ADB /* lunchAddLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lunchAddLocationViewController.h; sourceTree = "<group>"; };
+		92047784176681A100EB2ADB /* lunchAddLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lunchAddLocationViewController.m; sourceTree = "<group>"; };
+		9217AD3E176760A800BF46BD /* lunchRandomChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lunchRandomChoiceViewController.h; path = ../lunchRandomChoiceViewController.h; sourceTree = "<group>"; };
+		9217AD3F176760A800BF46BD /* lunchRandomChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = lunchRandomChoiceViewController.m; path = ../lunchRandomChoiceViewController.m; sourceTree = "<group>"; };
+		92BE806917690E8100F28BC9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreData.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +64,7 @@
 				920477581766637E00EB2ADB /* UIKit.framework in Frameworks */,
 				9204775A1766637E00EB2ADB /* Foundation.framework in Frameworks */,
 				9204775C1766637E00EB2ADB /* CoreGraphics.framework in Frameworks */,
+				92BE806A17690E8100F28BC9 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +91,7 @@
 		920477561766637E00EB2ADB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92BE806917690E8100F28BC9 /* CoreData.framework */,
 				920477571766637E00EB2ADB /* UIKit.framework */,
 				920477591766637E00EB2ADB /* Foundation.framework */,
 				9204775B1766637E00EB2ADB /* CoreGraphics.framework */,
@@ -89,6 +105,14 @@
 				920477661766637E00EB2ADB /* lunchAppDelegate.h */,
 				920477671766637E00EB2ADB /* lunchAppDelegate.m */,
 				9204776F1766637E00EB2ADB /* MainStoryboard.storyboard */,
+				9204777D176667D700EB2ADB /* lunchLocation.h */,
+				9204777E176667D700EB2ADB /* lunchLocation.m */,
+				92047783176681A100EB2ADB /* lunchAddLocationViewController.h */,
+				92047784176681A100EB2ADB /* lunchAddLocationViewController.m */,
+				9217AD3E176760A800BF46BD /* lunchRandomChoiceViewController.h */,
+				9217AD3F176760A800BF46BD /* lunchRandomChoiceViewController.m */,
+				9204778017666A6B00EB2ADB /* lunchLocationDataController.h */,
+				9204778117666A6B00EB2ADB /* lunchLocationDataController.m */,
 				920477721766637E00EB2ADB /* lunchMasterViewController.h */,
 				920477731766637E00EB2ADB /* lunchMasterViewController.m */,
 				920477751766637E00EB2ADB /* lunchDetailViewController.h */,
@@ -183,6 +207,10 @@
 				920477681766637E00EB2ADB /* lunchAppDelegate.m in Sources */,
 				920477741766637E00EB2ADB /* lunchMasterViewController.m in Sources */,
 				920477771766637E00EB2ADB /* lunchDetailViewController.m in Sources */,
+				9204777F176667D700EB2ADB /* lunchLocation.m in Sources */,
+				9204778217666A6B00EB2ADB /* lunchLocationDataController.m in Sources */,
+				92047785176681A100EB2ADB /* lunchAddLocationViewController.m in Sources */,
+				9217AD40176760A800BF46BD /* lunchRandomChoiceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +289,10 @@
 		9204777B1766637E00EB2ADB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "test_project3_randomLunch/test_project3_randomLunch-Prefix.pch";
 				INFOPLIST_FILE = "test_project3_randomLunch/test_project3_randomLunch-Info.plist";
@@ -272,6 +304,10 @@
 		9204777C1766637E00EB2ADB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "test_project3_randomLunch/test_project3_randomLunch-Prefix.pch";
 				INFOPLIST_FILE = "test_project3_randomLunch/test_project3_randomLunch-Info.plist";
@@ -299,6 +335,7 @@
 				9204777C1766637E00EB2ADB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

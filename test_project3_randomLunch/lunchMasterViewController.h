@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+
+@class lunchLocationDataController;
+
 
 @interface lunchMasterViewController : UITableViewController
+
+
+@property (strong, nonatomic) lunchLocationDataController *dataController;
+
+
+-(IBAction)cancel:(UIStoryboardSegue *)segue;
+
+-(IBAction)done:(UIStoryboardSegue *)segue;
+
+
 
 @end
