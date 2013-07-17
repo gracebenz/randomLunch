@@ -23,7 +23,7 @@
 		9204778217666A6B00EB2ADB /* lunchLocationDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9204778117666A6B00EB2ADB /* lunchLocationDataController.m */; };
 		92047785176681A100EB2ADB /* lunchAddLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92047784176681A100EB2ADB /* lunchAddLocationViewController.m */; };
 		9217AD40176760A800BF46BD /* lunchRandomChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9217AD3F176760A800BF46BD /* lunchRandomChoiceViewController.m */; };
-		92BE806A17690E8100F28BC9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BE806917690E8100F28BC9 /* CoreData.framework */; };
+		92BE806C1769114900F28BC9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BE806B1769114900F28BC9 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +53,7 @@
 		92047784176681A100EB2ADB /* lunchAddLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = lunchAddLocationViewController.m; sourceTree = "<group>"; };
 		9217AD3E176760A800BF46BD /* lunchRandomChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lunchRandomChoiceViewController.h; path = ../lunchRandomChoiceViewController.h; sourceTree = "<group>"; };
 		9217AD3F176760A800BF46BD /* lunchRandomChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = lunchRandomChoiceViewController.m; path = ../lunchRandomChoiceViewController.m; sourceTree = "<group>"; };
-		92BE806917690E8100F28BC9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreData.framework; sourceTree = "<group>"; };
+		92BE806B1769114900F28BC9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 				920477581766637E00EB2ADB /* UIKit.framework in Frameworks */,
 				9204775A1766637E00EB2ADB /* Foundation.framework in Frameworks */,
 				9204775C1766637E00EB2ADB /* CoreGraphics.framework in Frameworks */,
-				92BE806A17690E8100F28BC9 /* CoreData.framework in Frameworks */,
+				92BE806C1769114900F28BC9 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 		920477561766637E00EB2ADB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				92BE806917690E8100F28BC9 /* CoreData.framework */,
+				92BE806B1769114900F28BC9 /* CoreData.framework */,
 				920477571766637E00EB2ADB /* UIKit.framework */,
 				920477591766637E00EB2ADB /* Foundation.framework */,
 				9204775B1766637E00EB2ADB /* CoreGraphics.framework */,
@@ -296,7 +296,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "test_project3_randomLunch/test_project3_randomLunch-Prefix.pch";
 				INFOPLIST_FILE = "test_project3_randomLunch/test_project3_randomLunch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -311,7 +313,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "test_project3_randomLunch/test_project3_randomLunch-Prefix.pch";
 				INFOPLIST_FILE = "test_project3_randomLunch/test_project3_randomLunch-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -8,11 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class lunchLocationDataController;
+@class lunchLocation; 
 
 @interface lunchRandomChoiceViewController : UIViewController  
 
+@property (weak, nonatomic) NSMutableArray *alreadySuggested;
+
+@property (weak, nonatomic) lunchLocation *randomLunchLocation; 
 @property (weak, nonatomic) NSString *randomChoice;
 @property (weak, nonatomic) IBOutlet UILabel *randomChoiceLabel;
+
+@property (strong, nonatomic) lunchLocationDataController *dataController; 
+
+- (IBAction)randomizeAgain:(id)sender;
 
 
 @end

@@ -18,12 +18,7 @@
 
 #import "lunchRandomChoiceViewController.h" 
 
-/*
-@interface lunchMasterViewController () {
-    NSMutableArray *_objects;
-}
-@end
-*/
+
 @implementation lunchMasterViewController
 
 - (void)awakeFromNib
@@ -40,8 +35,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+
      */
 }
 
@@ -55,22 +49,58 @@
     if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
 
         lunchAddLocationViewController *addController = [segue sourceViewController];
-                
-        if(addController.lunchLocation) {
+                        
+        if (addController.lunchLocation) {
             [self.dataController addLunchLocationWithName:addController.lunchLocation];
             [[self tableView] reloadData];
+            
         }
-        //NSLog(@"%d", [self.dataController countOfList]);
+        
+    }
+    else if ([[segue identifier] isEqualToString:@"reset"]) {
+        lunchDetailViewController *detailController = [segue sourceViewController];
 
+        if (detailController.reset){
+            [self.dataController setLunchLocationCount:0 :detailController.lunchLocation];
+            detailController.reset = NO;
+        }
+        
         [self dismissViewControllerAnimated:YES completion:NULL];
+
     }
 }
 
 -(void)cancel:(UIStoryboardSegue *)segue {
     if ([[segue identifier] isEqualToString:@"CancelInput"]) {
-        [self dismissViewControllerAnimated:YES completion:NULL]; 
+
+        [self dismissViewControllerAnimated:YES completion:NULL];
     }
 }
+
+-(void)chosen:(UIStoryboardSegue *)segue {
+    if ([[segue identifier] isEqualToString:@"incrementCount"]) {
+        
+        lunchRandomChoiceViewController *randomViewController = [segue sourceViewController]; 
+        lunchLocation *randomLocation = [randomViewController randomLunchLocation];
+            
+        [self.dataController incrementLunchLocationWithName:randomLocation];
+        [self dismissViewControllerAnimated:YES completion:NULL];
+
+    }
+}
+/*
+-(void)reset:(UIStoryboardSegue *)segue {
+    if ([[segue identifier] isEqualToString:@"resetLunchData"]) {
+        lunchDetailViewController *detailViewController = [segue sourceViewController];
+        lunchLocation *detailLocation = [detailViewController lunchLocation];
+        
+        [[self.dataController objectInListWithName:detailLocation] setCount: 0];
+        [self dismissViewControllerAnimated:YES completion:NULL];
+
+        
+    }
+}
+*/
 
 
 #pragma mark - Table View
@@ -102,7 +132,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return NO;
+    return YES;
 }
 
 
@@ -113,42 +143,64 @@
         lunchLocation *locationAtIndex = [self.dataController objectInListAtIndex:(randomIndex)];
         NSString *locationString = locationAtIndex.name;
         
-        //have to do this because using a nacigation controller to get to random view contorller 
+        //have to do this because using a navigation controller to get to random view contorller 
         UINavigationController *navigationController = segue.destinationViewController; 
         lunchRandomChoiceViewController *randomViewController = (id)[[navigationController viewControllers] objectAtIndex:0];
 
+        randomViewController.dataController = self.dataController; 
         randomViewController.randomChoice = locationString;
+        randomViewController.randomLunchLocation = locationAtIndex; 
 
+    }
+    else if ([[segue identifier] isEqualToString:@"showLocationDetails"]) {
+        lunchDetailViewController *detailViewController = [segue destinationViewController];
+        
+        NSString *locationCountString = [NSString stringWithFormat:@"%i", [[self.dataController objectInListAtIndex:[[self.tableView indexPathForSelectedRow]row] ] returnCount]];
 
+        detailViewController.lunchLocation = [self.dataController objectInListAtIndex:[[self.tableView indexPathForSelectedRow]row]];
+        detailViewController.locationCount = locationCountString; 
+    
     }
 }
 
 
-/*
- - (void)insertNewObject:(id)sender
- {
- if (!_objects) {
- _objects = [[NSMutableArray alloc] init];
- }
- [_objects insertObject:[NSDate date] atIndex:0];
- NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
- [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
- }
- */
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
 
-
-/*
  
  - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
  {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- [_objects removeObjectAtIndex:indexPath.row];
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+     
+     if (editingStyle == UITableViewCellEditingStyleDelete) {
+         [self.dataController removeObjectFromLunchLocationsListAtIndex:indexPath.row];
+         
+         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+     }
+      
+ 
+ }
+
+/*
+ -(void)delete:(UIStoryboardSegue *)segue {
+ if ([[segue identifier] isEqualToString:@"delete"]) {
+ NSLog(@"delete prepare for segue");
+ 
+ 
+ lunchDetailViewController *detailController = [segue sourceViewController];
+ 
+ if (detailController.lunchLocation) {
+ [self.dataController removeLunchLocationsListObject:detailController.lunchLocation];
+ [[self tableView] reloadData];
+ }
+ 
+ [self dismissViewControllerAnimated:YES completion:NULL];
+ 
  }
  }
  */
+
 /*
  // Override to support rearranging the table view.
  - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
@@ -166,6 +218,4 @@
  */
 
 
-- (IBAction)randomize:(UIBarButtonItem *)sender {
-}
 @end

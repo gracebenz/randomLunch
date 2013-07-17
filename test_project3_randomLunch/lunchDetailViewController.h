@@ -8,9 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class lunchLocation;
+
+@class lunchLocationDataController; 
+
 @interface lunchDetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (weak, nonatomic) NSString *locationCount; 
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationCountLabel;
+
+@property (strong, nonatomic) lunchLocationDataController *dataController;
+
+@property (strong, nonatomic) lunchLocation *lunchLocation;
+
+@property (assign, nonatomic) BOOL reset;
+
+- (IBAction)reset:(id)sender;
+
 @end

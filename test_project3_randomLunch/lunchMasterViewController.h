@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
+
 
 @class lunchLocationDataController;
 
@@ -22,6 +22,7 @@
 
 -(IBAction)done:(UIStoryboardSegue *)segue;
 
+-(IBAction)chosen:(UIStoryboardSegue *)segue; 
 
 
 @end

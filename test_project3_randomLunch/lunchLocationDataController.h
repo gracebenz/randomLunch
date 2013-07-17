@@ -14,9 +14,26 @@
 
 - (NSUInteger) countOfList;
 
+-(int) indexOfObject: (lunchLocation *)location;
+
 - (lunchLocation *) objectInListAtIndex:(NSUInteger)theIndex;
 
-- (void)addLunchLocationWithName:(lunchLocation *)location;
+- (lunchLocation *)objectInListWithName: (lunchLocation *)theLocation;
+
+-(void) incrementLunchLocationWithName: (lunchLocation *)location; 
+
+-(void) addLunchLocationWithName:(lunchLocation *)location;
+
+-(void)setLunchLocationCount: (NSUInteger)count :(lunchLocation *)location;
+
+-(void) removeObjectFromLunchLocationsListAtIndex:(NSUInteger)index;
+
+-(void)cacheLocations; 
+
+//-(void) removeLunchLocationsListObject:(lunchLocation *)objectToBeRemoved;
+
+//-(NSMutableArray *) getLocationsFromCache;
+
 
 
 @end

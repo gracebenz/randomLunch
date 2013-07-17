@@ -9,6 +9,8 @@
 #import "lunchRandomChoiceViewController.h"
 #import "lunchLocation.h" 
 #import "lunchMasterViewController.h" 
+#import "lunchLocationDataController.h" 
+
 
 @interface lunchRandomChoiceViewController ()
 -(void) configureView;
@@ -18,19 +20,19 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+        self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        //cutsom initialization
     }
     return self;
 }
 
 -(void)configureView
 {
-    
     NSString *choice = [[NSString alloc] initWithFormat:@"%@!", _randomChoice];
     
     self.randomChoiceLabel.text = choice;
+    
 }
 
 
@@ -41,6 +43,8 @@
 	// Do any additional setup after loading the view.
 }
 
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -49,7 +53,25 @@
 
 
 
-
-
+- (IBAction)randomizeAgain:(id)sender
+{
+    //NSMutableArray *alreadySuggested = [[NSMutableArray alloc] init];
+    NSString *locationString = _randomChoice;
+    
+    while (locationString == _randomChoice) {
+        int randomIndex = arc4random() % [self.dataController countOfList];
+        lunchLocation *locationAtIndex = [self.dataController objectInListAtIndex:(randomIndex)];
+        locationString = locationAtIndex.name;
+        self.randomLunchLocation = locationAtIndex; 
+        
+    }
+    
+    _randomChoice = locationString;
+    NSString *choice = [[NSString alloc] initWithFormat:@"What about... %@!?", _randomChoice];
+    
+    
+    self.randomChoiceLabel.text = choice; 
+    
+}
 @end
 

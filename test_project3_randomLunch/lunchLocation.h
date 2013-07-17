@@ -8,10 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
-@interface lunchLocation : NSObject
+@interface lunchLocation : NSObject <NSCoding>
 
-@property (copy, nonatomic)NSString *name;
+@property (strong, nonatomic)NSString *name;
+
+@property (assign, nonatomic) NSUInteger theCount;
+
+//+(NSUInteger) timesVisited;
+
+-(void) incrementCount; 
+
+-(NSUInteger) returnCount;
+
+-(void)setCount:(NSUInteger)count;
 
 -(id)initWithName:(NSString *) name;
+
+-(NSMutableArray *)getArray;
+
++(lunchLocation *) fromArray:(NSMutableArray *)locationArray;
+- (void) encodeWithCoder:(NSCoder *)encoder;
+- (id)initWithCoder:(NSCoder *)decoder;
 
 @end
